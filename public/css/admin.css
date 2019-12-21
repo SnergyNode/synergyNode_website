@@ -1,0 +1,373 @@
+/*html{*/
+/*overflow: visible !important;*/
+/*!*background: linear-gradient(to top, #cfd9df 0%, #85d8ce 90%);*!*/
+/*background-image: linear-gradient(45deg, #eeeeee 0%, rgba(0, 91, 216, 0.21) 90%);*/
+/*}*/
+html{
+    background-color: #fff;
+}
+body{height: auto !important; min-height: 100vh !important;  padding: 0 0 50px 0; margin: 0;background-size: cover;}
+#mnav{margin: 0px;border-radius: 0; background-color: #003772
+}
+#mainbody{height: 100%;bottom: 0}
+.tnlink{margin-right: 30px}
+#bname{width: 250px; background-color: #496dcc
+}
+#bname:hover{color: #efe623
+}
+#sidepart{
+    width: 250px;
+    padding: 0;
+    background-color: #003772;
+    color: #ededed;
+    position: fixed;
+    margin: 0;
+    height: 100%;
+    transition: all 0.2s ease;
+}
+#bodypart{
+    padding: 15px;
+    margin-left: 250px;
+    transition: all 0.2s ease;
+    height: 95vh
+}
+#sidepart a{
+    color: azure;
+    border-radius: 0;
+    background-color: #003772;
+    border-color: transparent;
+    border-bottom-color: #002c61;
+    border-top-color: #002c61;
+    transition: all 0.5s ease;
+    height: 60px;
+}
+#sidepart a:hover{
+    text-decoration: none;
+    background-color: #496dcc;
+    color: #eee;
+    padding-left: 20px;
+    transition: all 0.5s ease;
+
+}
+
+#sidepart a:focus{
+    background-color: #496dcc;
+    color: #eee;
+    transition: all 0.5s ease;
+}
+
+#sidepart a:active{
+    background-color: #496dcc;
+    color: #eee;
+    transition: all 0.5s ease;
+}
+
+.nav-active{
+    background-color: #343A40 !important;
+    color: #ff611d !important;
+    transition: all 0.5s ease !important;
+}
+
+#sidepart a span{margin-right: 10px}
+
+#btm{
+    bottom: 0;
+
+}
+
+.n-date{font-size: 10px;color: #999999;}
+.n-info{color: #414141;}
+.n-title{color: #797b77;}
+.n-time{font-size: 10px;color: #999999;}
+.r-line{border-right: 1px solid gray}
+.gray-title{color: #5a5c58;}
+.gray-text{color: #979995;}
+
+
+.space-below{
+    margin-bottom: 15px;
+}
+.img-fit{
+    width: 100%;
+}
+
+.img-fit-h{
+    height: 400px;
+    margin: 0 auto;
+}
+
+.img-stable{
+    max-width: 400px;
+    min-width: 150px;
+}
+.img-large-fit{
+    width: 120%;
+    height: 120%;
+}
+
+.mid-size{
+    min-height: 50px;
+}
+.dark-t-bg{
+    background-color: rgba(69,69,69,0.78)
+}
+.light-t-bg{
+    background-color: rgba(236, 236, 236, 0.78)
+}
+.tr-pan{
+    background-color: rgba(255, 255, 255, 0.47);
+}
+
+/*i{transition: ease all 0.2s !important;}*/
+.circle-over:hover > i{text-decoration: none;color:#24548a}
+
+.outline{border: 1px solid #eee}
+.circle{border-radius: 8px;padding: 11px;transition: ease all 0.2s}
+.circle i{width: 15px;height: 15px;text-align: center}
+.circle-over:hover{background: #eee; color: #24548a;}
+.circle-over{margin: 0 6px;}
+.btn-over{background: transparent; color: #eee;border-color: #eee;}
+.btn-over:hover{background:#eee; color: #24548a; border-color: #eee ;}
+.navba{color:#EEEEEE;}
+#sidebarCollapse, #dismiss{cursor: pointer;}
+.img-sm{width: 45px;height: 45px;}
+.img-tiny{width: 35px;height: 35px;}
+.img-small{width: 55px !important;}
+.img-round{
+    border-radius: 50% 50% 50% 50%;
+}
+.img-hold{
+    position: relative;
+}
+.fs-12{
+    font-size:12px;
+}
+.btn{
+    /*transition: ease all 0.2s !important;*/
+}
+.components li a{background-color: transparent;}
+
+.components li a:hover{
+    background-color: #343A40 !important;
+    /*color: #fff !important;*/
+    /*color: #ff611d;*/
+}
+.dd-menu li a{
+    margin: 4px 15px;
+}
+.txt-ourline:hover{color: #fff !important;}
+.txt-ourline:focus{color: #fff !important;}
+.txt-ourline:active{color: #fff !important;}
+.txt-ourline{color: #17A2B8 !important;}
+
+/*SUPPORTING HARRYS CODE*/
+
+.info-page > div > p{
+    font-size: 10px;
+}
+.info-page > div > input{
+    font-size:12px;letter-spacing:1px;padding:  5px; border-color: transparent;border-bottom: 1px solid silver;width: 100%;color: gray; margin-bottom: 30px;
+}
+
+.info-page{padding-top: 25px}
+
+form > div > select{
+    border-color: #fff;
+    font-size:12px;letter-spacing:1px;padding:  5px; border-bottom: 1px solid silver;width: 100%;color: gray;
+}
+
+form > div > textarea{
+    font-size:12px;letter-spacing:1px;padding:  5px; border-color: transparent;border-bottom: 1px solid silver;width: 100%;color: gray;
+}
+
+/*Support ENDS*/
+.space-left{margin-left:20px;}
+.space-right{margin-right:20px;}
+
+.user-pic {
+    width:  112px;
+    height:  112px;
+    overflow: hidden;
+    background-color: #E8EAEE;
+    margin: 0 auto !important;
+
+    border-radius: 50%;
+
+}
+
+.img_box{
+    position: relative;
+    width: 100%;
+    border-radius: 50% 50% 50% 50%;
+
+}
+.img_box:before{
+    content: "";
+    display: block;
+    padding-top: 100%; 	/* initial ratio of 1:1*/
+    /*height: ;*/
+}
+
+.img_container{
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50% 50% 50% 50%;
+}
+
+.li_response{
+    text-decoration: none;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+}
+.parent_box{
+    margin: 3px 0;
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    color: #919191;
+    padding: 8px 10px ;
+}
+.clear_parent{
+    cursor: pointer;
+}
+
+.assign_lead_field{
+    width: 100%;
+    font-size:12px;letter-spacing:1px;padding:  5px; border-color: transparent;border-bottom: 1px solid silver;width: 100%;color: gray;
+}
+textarea:focus{
+    /*i want to remove the border shadow*/
+    outline: none;
+}
+.card-box{
+    min-width: 150px;
+}
+.card{
+
+}
+.m-h-200{
+    min-height:200px;
+}
+.card-body{
+    padding: 20px;
+}
+.text-black{
+    color: #000000;
+}
+.bottom-line{
+    border: 1px solid transparent; border-bottom-color: #b9b9b9;
+}
+.ul-anchor a{color: #19afc8 !important;}
+.ul-anchor a > p{color: #19afc8 !important;}
+
+.underline{
+    margin-bottom: 30px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ededed;
+}
+.tank{
+    padding: 0 0 20px 0;
+}
+.hover:hover{
+    background: rgba(192, 192, 192, 0.19);
+}
+.shadow{
+    box-shadow: 0 -2px 19px 6px rgba(28, 28, 28, 0.51);
+}
+.btn-dark:hover, .btn-dark:active, .btn-dark:focus{
+    background: #ff611d !important;
+    color: #222 !important;
+}
+.btn-dark:focus,.btn-dark:active{
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 2px rgba(255, 98, 30, 0.38) !important;
+    box-shadow: 0 0 0 2px rgba(255, 98, 30, 0.38) !important;
+}
+.form-label{
+    margin:0;
+}
+.badge-top{
+    position: absolute;
+    top: 3px;
+}
+
+#sidenav-bar a{
+    color: #ffc495;
+}
+#sidebar a:hover{
+    color: #ff611d !important;
+}
+
+.modal {
+    overflow: unset;
+    -webkit-box-shadow: 0 0 10px rgba(18, 18, 18, 0.6) !important;
+    -moz-box-shadow: 0 0 10px rgba(18, 18, 18, 0.6) !important;
+    -o-box-shadow: 0 0 10px rgba(18, 18, 18, 0.6) !important;
+    -ms-box-shadow: 0 0 10px rgba(18, 18, 18, 0.6) !important;
+    box-shadow: 0 0 10px rgba(18, 18, 18, 0.6) !important;
+}
+.modal-spinner{
+    min-height: 45px !important;
+}
+
+.blocker {
+    background-color: rgba(0, 0, 0, 0.51) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* SCROLL BARS  */
+#sidebar {
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+/*
+    visit https://css-tricks.com/custom-scrollbars-in-webkit/ for tutorials
+*/
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+/*track piece - the offset of the scroll thumb*/
+::-webkit-scrollbar-track-piece  {
+    background: #e9e9e9;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    /*border-radius: 5px;*/
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #848484;
+}
+
+
+/*i may use this color later [#47748b]*/
