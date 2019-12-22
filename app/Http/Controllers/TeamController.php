@@ -45,9 +45,9 @@ class TeamController extends MyController
         $teamlead = $request->input('teamlead');
         $process = false;
 
-        $project = Project::where('id', $id)->first();
+        $project = Project::find($id)->first();
 
-        if(empty($process)){
+        if(empty($project)){
             return redirect()->route('project.index')->withErrors(array('errors'=>'Opps! Project Not Found!'));
         }
 
