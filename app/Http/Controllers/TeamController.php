@@ -45,6 +45,12 @@ class TeamController extends MyController
         $teamlead = $request->input('teamlead');
         $process = false;
 
+        $project = Project::where('id', $id)->first();
+
+        if(empty($process)){
+            return redirect()->route('project.index')->withErrors(array('errors'=>'Opps! Project Not Found!'));
+        }
+
         if(in_array($teamlead,$request->input('userID') )){
 
 
@@ -53,48 +59,55 @@ class TeamController extends MyController
 
             foreach ($request->input('userID') as $user){
 
-                $team = new Team();
-                $team->user_id = $user;
-                $team->project_id = $id;
+                //check if user exist
 
-                //for emails
-                $pname = $team->project($id)->title;
-                $ddate = $team->project($id)->due_date;
-                $pclient = $team->project($id)->client('setName');
-                
-                if($teamlead === $user){
-                    $team->team_lead = true;
-                }else{
-                    $team->team_lead = false;
+                    if(!$project->inTeam($user)){
+                        $team = new Team();
+                        $team->user_id = $user;
+                        $team->project_id = $id;
+
+                        //for emails
+                        $pname = $team->project($id)->title;
+                        $ddate = $team->project($id)->due_date;
+                        $pclient = $team->project($id)->client('setName');
+
+                        if($teamlead === $user){
+                            $team->team_lead = true;
+                        }else{
+                            $team->team_lead = false;
+                        }
+
+                        //check if team member exist and update or
+
+
+                        //store user
+                        $team->save();
+
+                        //send email to team member
+                        $uzer = User::find($user);
+
+                        $object = [
+                            'email'=>$uzer->email,
+                            'subject'=>'Hi Teammate from Synergy Node!',
+                        ];
+                        $mdata = [
+                            'pname'=>$pname,
+                            'pclient'=>$pclient,
+                            'date'=>$ddate,
+                            'name'=> $uzer->first_name,
+                        ];
+                        @$this->sendMails($object, $mdata, 'team');
+
+                    }
+
+
                 }
-
-                //check if team member exist and update or
-
-
-                //store user
-                $team->save();
-
-                //send email to team member
-                $uzer = User::find($user);
-
-                $object = [
-                    'email'=>$uzer->email,
-                    'subject'=>'Hi Teammate from Synergy Node!',
-                ];
-                $mdata = [
-                    'pname'=>$pname,
-                    'pclient'=>$pclient,
-                    'date'=>$ddate,
-                    'name'=> $uzer->first_name,
-                ];
-                @$this->sendMails($object, $mdata, 'team');
-            }
 
             return back()->withMessage('Team Added to Project.');
 
         }else{
 
-            return back()->withErrors(array('errors'=>'Opps! team lead should be selected!'));
+            return back()->withErrors(array('errors'=>'Opps! One team lead should be selected!'));
 
         }
 
@@ -106,9 +119,14 @@ class TeamController extends MyController
      * @param  \App\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function show(Team $team)
+    public function show($id)
     {
-        //
+        $project = Project::where('id',$id)->first();
+
+
+        return view('admin.pages.team.managePerson')
+            ->with('project', $project)
+            ->with('teams', $project->teams);
     }
 
     /**
@@ -143,5 +161,11 @@ class TeamController extends MyController
     public function destroy(Team $team)
     {
         //
+    }
+
+    public function pop($id){
+        $team = Team::where('id', $id)->first();
+        $team->delete();
+        return back();
     }
 }

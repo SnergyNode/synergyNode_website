@@ -8,7 +8,8 @@ class Project extends Model
 {
     //
     protected $fillable =[
-        'type', 'start_date', 'due_date', 'cost', 'details', 'title', 'status', 'project_admin', 'priority', 'client_id'
+        'type', 'start_date', 'due_date', 'cost', 'details', 'title', 'status', 'project_admin', 'priority', 'client_id',
+        'unid'
     ];
 
     public function daysleft(){
@@ -113,5 +114,14 @@ class Project extends Model
     public function clients(){
         return Projectlist::where('project_id', $this->id)->get();
 
+    }
+
+    public function teams(){
+        return $this->hasMany(Team::class);
+    }
+
+    public function inTeam($id){
+        $team = Team::where('user_id', $id)->where('project_id', $this->id)->first();
+        return !empty($team)?true:false;
     }
 }

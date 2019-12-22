@@ -3,7 +3,8 @@
 
         <h6>Assigned Teams
 
-            <a href="{{ route('team.create', $project->id) }}" title="Click to add Team Members" class="btn btn-dark pull-right" rel="modal:open"> <i class="fa fa-plus"></i></a>
+            <a href="{{ route('team.edit', $project->id) }}" title="Click to edit Team Members" class="btn btn-outline-info pull-right ml-2" rel="modal:open"> <i class="fa fa-edit"></i></a>
+            <a href="{{ route('team.create', $project->id) }}" title="Click to add Team Members" class="btn btn-outline-danger pull-right ml-2" rel="modal:open"> <i class="fa fa-plus"></i></a>
         </h6>
         <hr>
         <div class="row">

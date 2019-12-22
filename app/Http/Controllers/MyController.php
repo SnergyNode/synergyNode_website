@@ -18,7 +18,7 @@ class MyController extends Controller
 
         $subject = $mail['subject'];
 
-        $fromMail = "Synergy Node Support <$sender>";
+        $fromMail = "Synergy Node  <$sender>";
 
         $headersMail = '';
 

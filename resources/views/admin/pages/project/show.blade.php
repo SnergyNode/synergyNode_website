@@ -20,6 +20,9 @@ $active['project'] = 'nav-active';
         <div class="row">
             <div class="col-md-12">
                 <a href="{{ route('project.edit', $project->id) }}" class="btn btn-lg btn-white-border">MANAGE PROJECT</a>
+                @if($project->type===1)
+                    <a href="{{ route('project.addTask', $project->id) }}" class="btn btn-lg btn-white-border">ADD TASKS</a>
+                @endif
             </div>
         </div>
 
