@@ -139,31 +139,33 @@ class UserController extends Controller
         //generate 1 time reset token
         if(!empty($user)){
             $token = $user->makeToken(120);
+
+
+            //set  with 1hr lifespan
+            $cd = time() + (60 * 60);
+
+            $set['countdown_pass'] = $cd;
+            $set['reset_toke'] = $token;
+            $user->update($set);
+
+            $email = $request->input('email');
+            $name = $user->setName();
+            $link = route('email.resetpassword',$token);
+            $message = $name. ", Please follow the bellow to rest your login credentials.";
+
+            $mail['email'] = $email;
+
+            //send email
+//        return $mail;
+            $object = [
+                'email'=>$email,
+                'message'=>$message,
+                'link'=>$link,
+                'subject'=>'Password Reset Request',
+            ];
+            MailusController::mailsender($object);
         }
 
-        //set  with 1hr lifespan
-        $cd = time() + (60 * 60);
-
-        $set['countdown_pass'] = $cd;
-        $set['reset_toke'] = $token;
-        $user->update($set);
-
-        $email = $request->input('email');
-        $name = $user->setName();
-        $link = route('email.resetpassword',$token);
-        $message = $name. ", Please follow the bellow to rest your login credentials.";
-
-        $mail['email'] = $email;
-
-        //send email
-//        return $mail;
-        $object = [
-            'email'=>$email,
-            'message'=>$message,
-            'link'=>$link,
-            'subject'=>'Password Reset Request',
-        ];
-        MailusController::mailsender($object);
 
         return back()->withMessage('An email has been sent to ' . $request->input('email') .' to reset your password');
     }

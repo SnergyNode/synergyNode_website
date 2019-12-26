@@ -62,6 +62,7 @@ class TeamController extends MyController
                 //check if user exist
 
                     if(!$project->inTeam($user)){
+
                         $team = new Team();
                         $team->user_id = $user;
                         $team->project_id = $id;
