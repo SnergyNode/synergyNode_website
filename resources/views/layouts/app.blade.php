@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="{{ asset("assets/owl-carousel/owl.carousel.css") }}">
     <!-- Default Theme -->
     <link rel="stylesheet" href="{{ asset("assets/owl-carousel/owl.theme.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/synergy.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/synergy.css?v=".$version) }}">
     <link rel="stylesheet" href="{{ asset("css/particle_style.css") }}">
     
     <!-- Global site tag (gtag.js) - Google Analytics -->

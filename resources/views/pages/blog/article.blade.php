@@ -22,19 +22,20 @@
                                 <img src="{{ url($article->banner) }}" alt="">
                             </div>
                         </div>
-                        <div class="card-footer">
+                        <div style="overflow: hidden; padding: 50px 30px">
+
+                            <div class="row">
+                                <div class="col-md-12" style="text-align: start">
+                                    {!! $article->detail !!}
+                                </div>
+
+                            </div>
                             <div class="row" style="margin-top: 50px">
                                 <p class="col-md-12 gray-text" style="text-align: left;">
                                     <small>
                                         SYNERGY<b style="color: orangered">NODE</b> ARTICLE | UPDATED: {{ date('F d, Y', strtotime($article->updated_at)) }}
                                     </small>
                                 </p>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12" style="text-align: start">
-                                    {!! $article->detail !!}
-                                </div>
-
                             </div>
                             <br>
                             <div class="" style="border: 0.1em solid transparent; border-top-color: rgba(0,0,0,0.11); margin-top: 50px;min-height: 60px ">

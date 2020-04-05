@@ -55,3 +55,13 @@ a.neutral:hover{
     /*padding: 2%;*/
     z-index: 1;
 }
+
+.btn-outline-synergy{
+    border-color: orangered;
+    color: orangered;
+}
+.btn-outline-synergy:hover, .btn-outline-synergy:active, .btn-outline-synergy:focus{
+    outline-color: orangered;
+    background-color: orangered;
+    color: #fff;
+}

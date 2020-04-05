@@ -16,7 +16,7 @@
                 <div class="col-md-9">
                     <div class="row">
                         <div class="col-md-12">
-                            <h6 class="text-left">Related to <span style="color: orangered">{{ $tag }}</span></h6>
+                            <h6 class="text-left">Publications related to <span style="color: orangered">{{ ucfirst($tag) }}</span></h6>
                             <hr>
                         </div>
                         @forelse($articles as $article)
@@ -29,8 +29,8 @@
                                                 <img src="{{ url($article->banner) }}" alt="">
                                             </div>
                                         </a>
-                                        <div class="" style="padding-top: 5px">
-                                            <p class="col-md-12 gray-text text-left">
+                                        <div class="" style="padding-top: 25px">
+                                            <p class="col-md-12 gray-text text-right">
                                                 <small>
                                                     SYNERGY<b style="color: orangered">NODE</b> ARTICLE | UPDATED: {{ date('F d, Y', strtotime($article->updated_at)) }}
                                                 </small>
@@ -47,7 +47,9 @@
                                             </p>
 
                                         </div>
-                                        <div class="card-footer tagfoot">
+
+                                        <div class=" tagfoot">
+                                            <hr>
                                             @include('pages.blog.relative')
                                         </div>
                                     </div>

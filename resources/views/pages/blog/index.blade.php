@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
                 @forelse($articles as $article)
-                    <div class="col-md-4 col-xs-6">
+                    <div class="col-md-6 col-xs-12">
                         <a class="neutral" href="{{ route('home.blog.show',$article->slug ) }}">
                             <div class="card">
                                 <div class="card-img">
@@ -22,11 +22,13 @@
                                         <img src="{{ url($article->banner) }}" alt="" style="width: 100%">
                                     </div>
                                 </div>
-                                <div class="card-footer " style="height: 80px;overflow: hidden; padding-top: 5px">
-                                    <p style="margin:0"><small style="color: orangered"><b>{{ $article->title }}</b></small></p>
-                                    <p><small>
+                                <div style="overflow: hidden; padding: 50px 30px">
+                                    <h5 style="margin:0" class="orangered">{{ $article->title }}</h5>
+                                    <p class="text-left">
+                                        <small>
                                             {{ $article->desc }}
-                                        </small></p>
+                                        </small>
+                                    </p>
                                 </div>
                             </div>
                         </a>
