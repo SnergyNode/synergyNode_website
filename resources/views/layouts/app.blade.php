@@ -1,3 +1,4 @@
+<?php $version = 0.04; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,7 +91,7 @@
     @if(@$skip['cmjs'])
 
     @else
-        <script src="{{ asset("mail/contact_me.js") }}"></script>
+        <script src="{{ asset("mail/contact_me.js?v=".$version) }}"></script>
     @endif
 
     <script src="{{ asset("js/jqBootstrapValidation.js") }}"></script>

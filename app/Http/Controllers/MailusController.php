@@ -10,23 +10,32 @@ class MailusController extends Controller
     public function prepMail(Request $request){
 
 
-        $name = $this->filter($request->input("name"));
-        $email = $this->filter($request->input("email"));
-        $message = $this->filter($request->input("message"));
+        $trueval = decrypt($request->input('secret'));
+        $answer = intval($request->input('summed'));
+        if($trueval===$answer){
+            $name = $this->filter($request->input("name"));
+            $email = $this->filter($request->input("email"));
+            $message = $this->filter($request->input("message"));
 
-        $res['name'] = $name;
-        $res['email'] = $email;
-        $res['message'] = $message;
+            $res['name'] = $name;
+            $res['email'] = $email;
+            $res['message'] = $message;
 
-        $to = 'info@synergynode.com';
-        //$to = 'icekidben@gmail.com';
-        $subject = 'New Contact Info from '.$name.' with email: '. $email;
-        $headers = 'From: '.$email;
+            $to = 'info@synergynode.com';
+            //$to = 'icekidben@gmail.com';
+            $subject = 'New Contact Info from '.$name.' with email: '. $email;
+            $headers = 'From: '.$email;
 
-        $process = $this->sendMail($to,$subject,$message,$headers);
-        $res['success'] = true;
-        $res['info'] = $process;
-        return json_encode($res);
+            $process = $this->sendMail($to,$subject,$message,$headers);
+            $res['success'] = true;
+            $res['info'] = $process;
+
+            return [json_encode($res), $request->all(), $trueval];
+        }else{
+            return json_encode(['success'=>false]);
+        }
+
+
 
     }
 
@@ -123,7 +132,7 @@ class MailusController extends Controller
             return false;
         } else { //send email
             try{
-                mail($to,$subject,$message,$headers);
+                @mail($to,$subject,$message,$headers);
                 $res = true;
             }catch (Exception $exception){
                 $res = $exception;
