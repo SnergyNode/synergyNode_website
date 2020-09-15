@@ -17,6 +17,8 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->integer('project_id');
             $table->integer('user_id');
+            $table->integer('client_id');
+            $table->string('type'); //activity or comments
             $table->longText('notes')->nullable();
             $table->text('title')->nullable();
             $table->timestamps();

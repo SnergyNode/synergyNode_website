@@ -30,7 +30,7 @@ $active['project'] = 'nav-active';
         @include('admin.include.notify')
 
         <div class="row mt-5">
-            <div class="col-md-4">
+            <div class="col-12 col-md-12 col-lg-4">
 
                 @include('admin.include.projectInfo')
 
@@ -39,7 +39,7 @@ $active['project'] = 'nav-active';
                 @include('admin.include.projectClient')
 
             </div>
-            <div class="col-md-8">
+            <div class="col-12 col-md-12 col-lg-8">
                 @include('admin.include.projectActivity')
             </div>
         </div>

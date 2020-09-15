@@ -45,7 +45,6 @@ Route::group(['middleware'=>'admin'], function () {
         Route::resource('quote', 'QuoteController');
         Route::resource('project', 'ProjectController');
 
-        Route::get('project/task/create', 'ProjectController@addTask')->name('project.addTask');
 
         Route::get('blog/{blog}/publish', 'BlogController@publish')->name('blog.publish');
         Route::get('blog/{blog}/unpublish', 'BlogController@unpublish')->name('blog.unpublish');
@@ -65,7 +64,9 @@ Route::group(['middleware'=>'admin'], function () {
 
         Route::post('client/build/{id}', 'ClientController@projectBuild')->name('client.build');
 
+        Route::post('project/add/activity/{project_id}', 'ProjectController@addActivity')->name('project.add.activity');
 
+        Route::get('project/add/task/{project_id}', 'ProjectController@addTask')->name('project.addTask');
 
     });
 });

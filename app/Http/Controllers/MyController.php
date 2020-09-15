@@ -44,7 +44,9 @@ class MyController extends Controller
 
     public function ProjectTeamNoticeTemplate( $type, $pname, $pclient, $date, $name){
         $date = date('F d, Y', $date);
-        if($type==='client'){
+        if($type==='new_activity'){
+            $message = "<div>New Activity Update on your project ($pname). Login to Project portal to view Details.</div>";
+        }elseif($type==='client'){
             $message = "<p>Your project <b>$pname</b> is being developed and is due on <b>$date</b>. <br> 
                            A link will be sent to you on request to monitor the project progress.
                            <br>

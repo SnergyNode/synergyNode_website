@@ -124,4 +124,16 @@ class Project extends Model
         $team = Team::where('user_id', $id)->where('project_id', $this->id)->first();
         return !empty($team)?true:false;
     }
+
+    public function getTimelinesAttribute(){
+        $notes = Note::where('project_id', $this->id)->get();
+        return $notes;
+    }
+
+    public function oneClient(){
+        $one = Projectlist::where('project_id', $this->id)->first();
+        if(!empty($one)){
+            return $one->client();
+        }
+    }
 }

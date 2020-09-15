@@ -175,7 +175,7 @@ class ClientController extends MyController
         $teamlead = $request->input('teamlead');
         $process = false;
 
-        if(in_array($teamlead,$request->input('userID') )){
+        if(in_array($teamlead, $request->input('userID') )){
 
 
 //            return $request->all();

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Note;
 use App\Project;
 use App\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ProjectController extends Controller
+class ProjectController extends MyController
 {
     /**
      * Display a listing of the resource.
@@ -113,5 +114,42 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+    }
+
+    public function addActivity(Request $request, $project_id){
+        $project = Project::where('id', $project_id)->first();
+        if(!empty($project)){
+            $note = new Note();
+            $note->project_id = $project_id;
+            $note->user_id = Auth::user()->id;
+            $note->type = 'activity';
+            $note->notes = $request->input('notes');
+            $note->save();
+
+            //send email notice of activity
+
+            foreach ($project->clients() as $client){
+                $object = [
+                    'email'=>$client->email,
+                    'subject'=>"New Activity on $project->title!",
+                ];
+                $mdata = [
+                    'pname'=>$project->title,
+                    'pclient'=>$client,
+                    'date'=>$project->due_date,
+                    'name'=>$client->first_name
+                ];
+                @$this->sendMails($object, $mdata, 'new_activity');
+            }
+
+
+            return back()->withMessage('Activity added');
+        }
+
+        return back()->withErrors(['No Resource Found']);
+    }
+
+    public function addTask(Request $request){
+
     }
 }

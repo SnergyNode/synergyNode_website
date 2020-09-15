@@ -1,5 +1,5 @@
-<div class="card mt-4">
-    <div class="card-body">
+<div class="card mt-4 mb-4">
+    <div class="card-body ">
         <h6>Clients Information
 
             <a href="{{ route('client.assign', $project->id) }}" title="Click to add Team Members" class="btn btn-dark pull-right" rel="modal:open"> <i class="fa fa-plus"></i></a>
