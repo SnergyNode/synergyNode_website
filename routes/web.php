@@ -17,12 +17,16 @@
 
 //Auth::routes();
 
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
 Route::post('/contact_desk', 'MailusController@prepMail');
 
 Route::get('/id', 'UserController@unid');
 Route::get('/unid', 'UserController@unidid');
 Route::get('/synergy-desk', 'HomeController@adminlogin')->name('admin.login')->middleware('access');
+Route::get('/synergy-desk', 'HomeController@adminlogin')->name('login')->middleware('access');
 Route::post('/synergy-desk/signin', 'UserController@signin')->name('admin.signin');
 Route::post('/synergy-desk/logout', 'UserController@logout')->name('admin.logout');
 Route::get('/synergy-desk/forgotpass', 'UserController@lostpass')->name('password.request');
